@@ -1,0 +1,6 @@
+node_modules
+.env
+.prisma
+server-err.log
+server-out.log
+*.log

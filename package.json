@@ -1,0 +1,26 @@
+{
+  "name": "sales2-auth",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "setup": "node src/setup.js",
+    "seed": "node src/seed.js",
+    "reset": "node -e \"require('dotenv/config'); const {Pool}=require('pg'); new Pool({host:process.env.PGHOST,port:process.env.PGPORT,user:process.env.PGUSER,password:process.env.PGPASSWORD,database:process.env.PGDATABASE}).query('DROP TABLE IF EXISTS activity_logs,calls,tasks,clients,leads,companies,users; DROP TYPE IF EXISTS user_role').then(()=>console.log('Reset done')).catch(e=>console.error(e)).then(()=>process.exit())\"",
+    "db:check": "node src/check-db.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0",
+    "express": "^4.21.0",
+    "express-async-errors": "^3.1.1",
+    "express-rate-limit": "^8.5.2",
+    "helmet": "^8.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.0",
+    "socket.io": "^4.8.3",
+    "zod": "^3.24.0"
+  }
+}
